@@ -1,10 +1,14 @@
 package com.example.test1;
 
+
+
+//Class containing the course details
 public class courseDetails {
     String cName;
     String cHours;
     String cPrice;
 
+    //initialisation
     public courseDetails(String cName, String cHours, String cPrice) {
         this.cName = cName;
         this.cHours = cHours;

@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        //initialise the objects with the resource ids
         uname = findViewById(R.id.Uname);
         password = findViewById(R.id.Pword);
         login = findViewById(R.id.login);
@@ -35,14 +37,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         System.out.println(username);
         String pwd = password.getText().toString();
 
+        //Checks if the login is valid. compares the login username and password and throws error if not correct or empty
         while (!status) {
             if (username.equals("student1") && pwd.equals("123456")) {
                 Intent intent = new Intent(this, CourseList.class);
+                //passing the username to the next activity.
                 intent.putExtra("uname", uname.getText().toString());
                 startActivity(intent);
 
                 status = true;
-            } else if (username.equals("") && pwd.equals("")) {
+                //checks empty condition
+            } else if (username.equals("") || pwd.equals("")) {
                 Toast.makeText(MainActivity.this, "UserName or Password Cannot be empty",
                         Toast.LENGTH_LONG).show();
                 status = false;
